@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
@@ -89,7 +89,6 @@
       height: 10px;
       background: linear-gradient(90deg, #7f5cff, #00ffd5);
       width: 0;
-      animation: load 2s forwards;
     }
     @keyframes load {
       to { width: var(--w); }
@@ -177,5 +176,24 @@
   © 2026 Athwal Dayfi Hikari – CV Website
 </footer>
 
+<script>
+  const progresses = document.querySelectorAll('.progress span');
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const span = entry.target;
+        const target = span.style.getPropertyValue('--w');
+        span.style.width = '1%';
+        setTimeout(() => {
+          span.style.transition = 'width 2s ease';
+          span.style.width = target;
+        }, 100);
+        observer.unobserve(span);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  progresses.forEach(span => observer.observe(span));
+</script>
 </body>
 </html>
