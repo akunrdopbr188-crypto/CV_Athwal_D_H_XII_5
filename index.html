@@ -3,146 +3,231 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Athwal Dayfi Hikari</title>
+    <title>Athwal Dayfi Hikari | Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
-            --primary: #2c3e50;
-            --accent: #3498db;
-            --bg: #f4f7f6;
-            --text: #333;
+            --dark: #0f172a;
+            --gold: #c5a059;
+            --light-gold: #e5d5b7;
+            --text-gray: #64748b;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
+            font-family: 'Inter', sans-serif;
+            background-color: #f8fafc;
+            color: var(--dark);
+            line-height: 1.7;
         }
 
-        .container {
-            max-width: 800px;
-            margin: 40px auto;
-            background: white;
+        .main-wrapper {
+            max-width: 900px;
+            margin: 50px auto;
+            background: var(--white);
+            display: flex;
+            flex-wrap: wrap;
+            box-shadow: 0 20px 50px rgba(0,0,0,0.05);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        /* Sidebar Elegan */
+        .sidebar {
+            flex: 1 1 300px;
+            background-color: var(--dark);
+            color: var(--white);
             padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
 
-        header {
-            text-align: center;
-            border-bottom: 2px solid var(--bg);
-            padding-bottom: 30px;
-            margin-bottom: 30px;
+        .profile-frame {
+            width: 180px;
+            height: 180px;
+            border: 2px solid var(--gold);
+            margin: 0 auto 25px;
+            padding: 8px;
+            border-radius: 50%;
         }
 
         .profile-img {
-            width: 150px;
-            height: 150px;
+            width: 100%;
+            height: 100%;
             border-radius: 50%;
             object-fit: cover;
-            border: 4px solid var(--accent);
-            margin-bottom: 15px;
+            background: #fff;
         }
 
-        h1 { margin: 10px 0; color: var(--primary); }
-        .contact-info { color: #666; font-size: 0.9em; }
-
-        section { margin-bottom: 30px; }
-        h2 { 
-            color: var(--accent); 
-            border-left: 5px solid var(--accent);
-            padding-left: 15px;
+        .sidebar h2 {
+            color: var(--gold);
+            font-size: 1.2rem;
+            letter-spacing: 2px;
             text-transform: uppercase;
-            font-size: 1.2em;
+            margin-bottom: 15px;
+            border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+            padding-bottom: 5px;
         }
 
-        .grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 20px;
+        .contact-item {
+            margin-bottom: 20px;
+            font-size: 0.9rem;
+            color: #cbd5e1;
         }
 
-        .card {
-            background: #f9f9f9;
-            padding: 15px;
-            border-radius: 8px;
+        /* Konten Utama */
+        .content {
+            flex: 2 1 500px;
+            padding: 60px;
         }
 
-        ul { padding-left: 20px; }
-        li { margin-bottom: 8px; }
+        header h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.8rem;
+            margin-bottom: 5px;
+            color: var(--dark);
+        }
 
-        .tag {
+        .subtitle {
+            color: var(--gold);
+            letter-spacing: 3px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            margin-bottom: 30px;
+        }
+
+        section { margin-bottom: 40px; }
+
+        h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        h3::after {
+            content: "";
+            flex: 1;
+            height: 1px;
+            background: #e2e8f0;
+            margin-left: 20px;
+        }
+
+        .edu-item, .exp-item {
+            margin-bottom: 20px;
+        }
+
+        .year {
+            color: var(--gold);
+            font-weight: 600;
+            font-size: 0.85rem;
+        }
+
+        .skill-badge {
             display: inline-block;
-            background: var(--accent);
-            color: white;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.8em;
-            margin: 3px;
+            border: 1px solid var(--gold);
+            color: var(--dark);
+            padding: 4px 15px;
+            margin: 0 8px 10px 0;
+            font-size: 0.8rem;
+            border-radius: 2px;
+            transition: 0.3s;
         }
 
-        @media (max-width: 600px) {
-            .grid { grid-template-columns: 1fr; }
-            .container { margin: 10px; padding: 20px; }
+        .skill-badge:hover {
+            background: var(--gold);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .main-wrapper { margin: 0; }
+            .content { padding: 30px; }
         }
     </style>
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <img src="https://via.placeholder.com/150" alt="Athwal Dayfi Hikari" class="profile-img">
-        <h1>Athwal Dayfi Hikari</h1>
-        <div class="contact-info">
-            📍 Kp. Andir, Kec. Baleendah, Kab. Bandung <br>
-            📞 085179972033 | 📸 @athwaldayfii
+<div class="main-wrapper">
+    <div class="sidebar">
+        <div class="profile-frame">
+            <img src="https://via.placeholder.com/200" alt="Athwal Dayfi" class="profile-img">
         </div>
-    </header>
 
-    <section>
-        <h2>Tentang Diri</h2>
-        <p>Saya adalah seorang pelajar kelahiran 2007 yang memiliki minat untuk belajar hal baru, bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.</p>
-    </section>
-
-    <div class="grid">
         <section>
-            <h2>Pendidikan</h2>
-            <div class="card">
-                <strong>SMA KP BALEENDAH</strong> (Lulus 2026)<br>
-                <strong>SMPN 1 CANGKUANG</strong> (Lulus 2023)<br>
-                <strong>SDN KARANGSETRA CILUNCAT</strong> (Lulus 2020)
+            <h2>Kontak</h2>
+            <div class="contact-item">
+                <p>📞 085179972033</p>
+                <p>📸 @athwaldayfii</p>
+                <p>📍 Baleendah, Bandung</p>
             </div>
         </section>
 
         <section>
-            <h2>Pengalaman</h2>
-            <div class="card">
-                <strong>Freelance Packing</strong><br>
-                Bertanggung jawab dalam proses pengemasan barang dengan rapi dan teliti.
+            <h2>Bahasa</h2>
+            <div class="contact-item">
+                <p>Indonesia (Aktif)</p>
+                <p>Sunda (Aktif)</p>
+                <p>Inggris (Dasar)</p>
+            </div>
+        </section>
+
+        <section>
+            <h2>Hobby</h2>
+            <div class="contact-item" style="font-style: italic;">
+                Gaming, Membaca Komik, Musik
             </div>
         </section>
     </div>
 
-    <section>
-        <h2>Keahlian & Bahasa</h2>
-        <div class="card">
-            <strong>Soft Skills:</strong> Kerjasama Tim, Adaptasi Lingkungan Cepat.<br>
-            <strong>Bahasa:</strong> Indonesia (Aktif), Sunda (Aktif), Inggris (Dasar).
-        </div>
-    </section>
+    <div class="content">
+        <header>
+            <h1>Athwal Dayfi Hikari</h1>
+            <p class="subtitle">Pelajar & Tech Enthusiast</p>
+        </header>
 
-    <section>
-        <h2>Minat & Hobby</h2>
-        <div>
-            <span class="tag">Finance & Investment</span>
-            <span class="tag">Teknologi</span>
-            <span class="tag">Gaming</span>
-            <span class="tag">Membaca Komik</span>
-            <span class="tag">Musik</span>
-        </div>
-    </section>
+        <section>
+            <h3>Tentang Saya</h3>
+            <p>Seorang pelajar yang berfokus pada pengembangan diri dan teknologi. Memiliki etos kerja tinggi, mampu beradaptasi dengan cepat di lingkungan baru, serta memiliki ketertarikan mendalam pada dunia investasi dan finansial.</p>
+        </section>
+
+        <section>
+            <h3>Pendidikan</h3>
+            <div class="edu-item">
+                <p class="year">2023 — 2026</p>
+                <strong>SMA KP BALEENDAH</strong>
+            </div>
+            <div class="edu-item">
+                <p class="year">2020 — 2023</p>
+                <strong>SMPN 1 CANGKUANG</strong>
+            </div>
+        </section>
+
+        <section>
+            <h3>Pengalaman</h3>
+            <div class="exp-item">
+                <p class="year">Freelance</p>
+                <strong>Bagian Packing</strong>
+                <p style="font-size: 0.9rem; color: var(--text-gray);">Mengelola pengemasan produk dengan standar ketelitian tinggi dan manajemen waktu yang efisien.</p>
+            </div>
+        </section>
+
+        <section>
+            <h3>Keahlian & Minat</h3>
+            <div>
+                <span class="skill-badge">Kerjasama Tim</span>
+                <span class="skill-badge">Adaptasi Cepat</span>
+                <span class="skill-badge">Finance & Investment</span>
+                <span class="skill-badge">Technology</span>
+                <span class="skill-badge">Problem Solving</span>
+            </div>
+        </section>
+    </div>
 </div>
 
 </body>
