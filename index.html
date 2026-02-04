@@ -1,147 +1,112 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV Athwal Dayfi Hikari</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #1e1e2f, #2a2a40);
-      color: #fff;
-      line-height: 1.6;
-    }
-    header { text-align: center; padding: 60px 20px; }
-    .photo-wrapper {
-      width: 180px; height: 180px; margin: 0 auto 20px;
-      border-radius: 50%; padding: 5px;
-      background: linear-gradient(270deg, #7f5cff, #00ffd5);
-      animation: spin 8s linear infinite;
-    }
-    .photo-wrapper img {
-      width: 100%; height: 100%; border-radius: 50%; object-fit: cover;
-      animation: stopspin 8s linear infinite;
-    }
-    @keyframes spin { from { transform: rotate(0); } to { transform: rotate(360deg); } }
-    @keyframes stopspin { from { transform: rotate(360deg); } to { transform: rotate(0); } }
-    section {
-      max-width: 900px; margin: 30px auto; padding: 25px;
-      background: rgba(255,255,255,0.05);
-      border-radius: 16px;
-    }
-    h2 { color: #00ffd5; margin-bottom: 10px; }
-    .progress { background: rgba(255,255,255,0.15); border-radius: 10px; overflow: hidden; }
-    .progress span {
-      display: block;
-      height: 10px;
-      width: 0;
-      background: linear-gradient(90deg,#7f5cff,#00ffd5);
-      transition: width 2s ease;
-    }
-    .progress span.glow {
-      box-shadow: 0 0 10px #00ffd5, 0 0 20px #00ffd5, 0 0 40px #7f5cff;
-      filter: brightness(1.3);
-    }
-    .percent { display:block; font-size:0.8rem; margin-bottom:10px; text-align:right; }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV | Athwal Dayfi Hikari</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f3f4f6; }
+        .gradient-bg { background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%); }
+    </style>
 </head>
-<body>
+<body class="text-gray-800">
 
-<header>
-  <div class="photo-wrapper">
-    <!-- Ganti foto.jpg dengan foto asli kamu -->
-    <img src="foto.jpg" alt="Foto Athwal">
-  </div>
-  <h1>Athwal Dayfi Hikari</h1>
-  <p>Pelajar | Minat Teknologi & Game</p>
-</header>
+    <header class="gradient-bg text-white py-16 px-4 text-center shadow-lg">
+        <div class="max-w-4xl mx-auto">
+            <div class="w-32 h-32 bg-gray-300 rounded-full mx-auto mb-4 border-4 border-white overflow-hidden">
+                <img src="https://via.placeholder.com/150" alt="Athwal Dayfi Hikari" class="w-full h-full object-cover">
+            </div>
+            <h1 class="text-4xl font-bold uppercase tracking-wide">Athwal Dayfi Hikari</h1>
+            <p class="mt-2 text-blue-100 italic">Pelajar | Tech Enthusiast | Finance & Investment</p>
+            
+            <div class="mt-6 flex flex-wrap justify-center gap-4 text-sm">
+                <span><i class="fas fa-phone mr-2"></i>+62 857-2916-1289</span>
+                <span><i class="fas fa-map-marker-alt mr-2"></i>Baleendah, Bandung</span>
+                <a href="https://instagram.com/athwaldayfii" class="hover:underline"><i class="fab fa-instagram mr-2"></i>@athwaldayfii</a>
+            </div>
+        </div>
+    </header>
 
-<section>
-  <h2>Data Diri</h2>
-  <div class="info-grid">
-    <div>📅 Tahun Lahir: 2007</div>
-    <div>📞 Telepon: +62 857-2916-1289</div>
-    <div>📍 Alamat: Kp. Andir, Kec. Baleendah, Kab. Bandung</div>
-    <div>📸 Instagram: <a href="https://instagram.com/athwaldayfii" target="_blank">@athwaldayfii</a></div>
-  </div>
-</section>
+    <main class="max-w-5xl mx-auto p-6 grid grid-cols-1 md:grid-cols-3 gap-8 -mt-8">
+        
+        <div class="md:col-span-1 space-y-6">
+            <section class="bg-white p-6 rounded-xl shadow-md border-t-4 border-blue-600">
+                <h2 class="text-xl font-bold mb-3 border-b pb-2">Tentang Saya</h2>
+                <p class="text-gray-600 leading-relaxed text-sm">
+                    Saya adalah seorang pelajar yang memiliki minat tinggi untuk belajar hal baru, bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.
+                </p>
+            </section>
 
-<section>
-  <h2>Tentang Diri</h2>
-  <p>Saya adalah seorang pelajar yang memiliki minat untuk belajar hal baru, bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.</p>
-</section>
+            <section class="bg-white p-6 rounded-xl shadow-md">
+                <h2 class="text-xl font-bold mb-4 border-b pb-2 text-blue-700">Bahasa</h2>
+                <div class="space-y-3">
+                    <div><span class="text-sm font-semibold">Indonesia</span><div class="w-full bg-gray-200 h-2 rounded"><div class="bg-blue-600 h-2 rounded" style="width: 100%"></div></div></div>
+                    <div><span class="text-sm font-semibold">Sunda</span><div class="w-full bg-gray-200 h-2 rounded"><div class="bg-blue-600 h-2 rounded" style="width: 100%"></div></div></div>
+                    <div><span class="text-sm font-semibold">Inggris</span><div class="w-full bg-gray-200 h-2 rounded"><div class="bg-blue-600 h-2 rounded" style="width: 20%"></div></div></div>
+                    <div><span class="text-sm font-semibold">Jepang</span><div class="w-full bg-gray-200 h-2 rounded"><div class="bg-blue-600 h-2 rounded" style="width: 10%"></div></div></div>
+                </div>
+            </section>
 
-<section>
-  <h2>Pendidikan</h2>
-  <ul>
-    <li>SDN Karangsetra Ciluncat – Lulus 2020</li>
-    <li>SMPN 1 Cangkuang – Lulus 2023</li>
-    <li>SMA KP Baleendah – Lulus 2026</li>
-  </ul>
-</section>
+            <section class="bg-white p-6 rounded-xl shadow-md">
+                <h2 class="text-xl font-bold mb-3 border-b pb-2">Hobi</h2>
+                <ul class="list-disc list-inside text-gray-600 text-sm space-y-1">
+                    <li>Bermain Game</li>
+                    <li>Membaca Komik</li>
+                    <li>Mendengarkan Musik</li>
+                </ul>
+            </section>
+        </div>
 
-<section>
-  <h2>Keahlian</h2>
-  <span class="tag">Kerja Sama Tim</span>
-  <span class="tag">Adaptasi Lingkungan</span>
-</section>
+        <div class="md:col-span-2 space-y-6">
+            <section class="bg-white p-6 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold mb-4 flex items-center"><i class="fas fa-graduation-cap mr-3 text-blue-600"></i>Pendidikan</h2>
+                <div class="space-y-4 border-l-2 border-blue-200 pl-4">
+                    <div>
+                        <h3 class="font-bold text-lg">SMA KP Baleendah</h3>
+                        <p class="text-sm text-gray-500">2023 - 2026</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg">SMPN 1 Cangkuang</h3>
+                        <p class="text-sm text-gray-500">2020 - 2023</p>
+                    </div>
+                    <div>
+                        <h3 class="font-bold text-lg">SDN Karangsetra Ciluncat</h3>
+                        <p class="text-sm text-gray-500">Lulus 2020</p>
+                    </div>
+                </div>
+            </section>
 
-<section>
-  <h2>Bahasa</h2>
-  <p>Bahasa Indonesia</p>
-  <div class="progress"><span style="--w:100%"></span></div><small class="percent">1%</small>
-  <p>Bahasa Sunda</p>
-  <div class="progress"><span style="--w:100%"></span></div><small class="percent">1%</small>
-  <p>Bahasa Inggris</p>
-  <div class="progress"><span style="--w:20%"></span></div>
-  <p>Bahasa Jepang</p>
-  <div class="progress"><span style="--w:10%"></span></div>
-</section>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <section class="bg-white p-6 rounded-xl shadow-md">
+                    <h2 class="font-bold text-lg mb-3 border-b pb-1 italic text-blue-700">Soft Skills</h2>
+                    <ul class="text-sm space-y-2">
+                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Kerjasama Tim</li>
+                        <li><i class="fas fa-check-circle text-green-500 mr-2"></i>Adaptasi Lingkungan</li>
+                    </ul>
+                </section>
+                <section class="bg-white p-6 rounded-xl shadow-md">
+                    <h2 class="font-bold text-lg mb-3 border-b pb-1 italic text-blue-700">Pengalaman</h2>
+                    <p class="text-sm font-semibold">Productivity Recall</p>
+                    <p class="text-xs text-gray-500">Project personal fokus pada manajemen waktu.</p>
+                </section>
+            </div>
 
-<section>
-  <h2>Pengalaman</h2>
-  <p>Productivity Recall</p>
-</section>
+            <section class="bg-white p-6 rounded-xl shadow-md">
+                <h2 class="text-2xl font-bold mb-4 flex items-center"><i class="fas fa-heart mr-3 text-red-500"></i>Minat Utama</h2>
+                <div class="flex flex-wrap gap-2">
+                    <span class="bg-blue-100 text-blue-800 px-4 py-1 rounded-full text-sm font-medium">Finance & Investment</span>
+                    <span class="bg-purple-100 text-purple-800 px-4 py-1 rounded-full text-sm font-medium">Gaming</span>
+                    <span class="bg-green-100 text-green-800 px-4 py-1 rounded-full text-sm font-medium">Teknologi</span>
+                </div>
+            </section>
+        </div>
+    </main>
 
-<section>
-  <h2>Minat</h2>
-  <span class="tag">Finance & Investment</span>
-  <span class="tag">Game</span>
-  <span class="tag">Teknologi</span>
-</section>
+    <footer class="text-center py-10 text-gray-500 text-sm">
+        <p>&copy; 2026 Athwal Dayfi Hikari. Dibuat dengan semangat belajar.</p>
+    </footer>
 
-<section>
-  <h2>Sertifikat</h2>
-  <p>Belum memiliki sertifikat.</p>
-</section>
-
-<footer>
-  © 2026 Athwal Dayfi Hikari – CV Website
-</footer>
-
-<script>
-  const progresses = document.querySelectorAll('.progress span');
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        const span = entry.target;
-        const target = span.style.getPropertyValue('--w');
-        span.style.width = '1%';
-        setTimeout(() => {
-          span.style.transition = 'width 2s ease';
-          span.style.width = target;
-        }, 100);
-        if (target.trim() === '100%') {
-          setTimeout(() => span.classList.add('glow'), 2000);
-        }
-        observer.unobserve(span);
-      }
-    });
-  }, { threshold: 0.5 });
-
-  progresses.forEach(span => observer.observe(span));
-</script>
 </body>
 </html>
