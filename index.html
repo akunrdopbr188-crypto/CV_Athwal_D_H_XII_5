@@ -54,11 +54,6 @@
     ul {
       padding-left: 20px;
     }
-    .info-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 15px;
-    }
     .tag {
       display: inline-block;
       background: #e3f2fd;
@@ -68,6 +63,32 @@
       margin: 5px 5px 0 0;
       font-size: 13px;
     }
+
+    /* ===== Animasi Bahasa ===== */
+    .language p {
+      margin: 10px 0 5px;
+      font-weight: bold;
+    }
+    .bar {
+      width: 100%;
+      background: #eee;
+      border-radius: 20px;
+      overflow: hidden;
+      margin-bottom: 15px;
+      height: 14px;
+    }
+    .fill {
+      height: 100%;
+      width: 0;
+      background: linear-gradient(90deg, #1e88e5, #43a047, #fdd835);
+      border-radius: 20px;
+      animation: load 2s forwards;
+    }
+    @keyframes load {
+      from { width: 1%; }
+      to { width: var(--level); }
+    }
+
     footer {
       text-align: center;
       padding: 15px;
@@ -80,7 +101,7 @@
   <div class="container">
     <header>
       <!-- Ganti src dengan foto Anda -->
-      <img src="file_00000000cd187206baea96093e24e953.png" alt="Foto Athwal Dayfi Hikari" />
+      <img src="foto-athwal.jpg" alt="Foto Athwal Dayfi Hikari" />
       <div>
         <h1>Athwal Dayfi Hikari</h1>
         <p>Pelajar | Lahir 2007</p>
@@ -124,12 +145,19 @@
 
     <section>
       <h2>Bahasa</h2>
-      <ul>
-        <li>Bahasa Indonesia – 100%</li>
-        <li>Bahasa Inggris – 20%</li>
-        <li>Bahasa Sunda – 100%</li>
-        <li>Bahasa Jepang – 10%</li>
-      </ul>
+      <div class="language">
+        <p>Bahasa Indonesia</p>
+        <div class="bar"><div class="fill" style="--level:100%"></div></div>
+
+        <p>Bahasa Inggris</p>
+        <div class="bar"><div class="fill" style="--level:20%"></div></div>
+
+        <p>Bahasa Sunda</p>
+        <div class="bar"><div class="fill" style="--level:100%"></div></div>
+
+        <p>Bahasa Jepang</p>
+        <div class="bar"><div class="fill" style="--level:10%"></div></div>
+      </div>
     </section>
 
     <section>
