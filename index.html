@@ -3,172 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Website - Athwal Dayfi Hikari</title>
+    <title>Interactive CV - Athwal Dayfi Hikari</title>
     <style>
         :root {
             --primary: #1a2a6c;
-            --secondary: #2c3e50;
             --accent: #00d2ff;
-            --text-light: #ecf0f1;
-            --text-dark: #333;
-            --bg-body: #f0f2f5;
-        }
-
-        * {
-            box-sizing: border-box;
+            --bg-body: #f4f7f6;
+            --white: #ffffff;
         }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-dark);
-            margin: 0;
-            padding: 20px;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-body);
             display: flex;
             justify-content: center;
+            padding: 20px;
+            margin: 0;
         }
 
         .cv-container {
             width: 100%;
-            max-width: 950px;
-            background: #fff;
+            max-width: 900px;
+            background: var(--white);
             display: flex;
             flex-wrap: wrap;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            border-radius: 8px;
+            border-radius: 15px;
             overflow: hidden;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.1);
         }
 
-        /* SIDEBAR KIRI */
+        /* SIDEBAR */
         .sidebar {
             flex: 1;
-            min-width: 320px;
-            background: linear-gradient(to bottom, #1a2a6c, #203a43, #2c5364);
-            color: var(--text-light);
-            padding: 40px 30px;
-        }
-
-        .profile-box {
+            min-width: 300px;
+            background: linear-gradient(135deg, var(--primary) 0%, #2c5364 100%);
+            color: white;
+            padding: 40px 25px;
             text-align: center;
-            margin-bottom: 40px;
         }
 
         .profile-img {
-            width: 160px;
-            height: 160px;
+            width: 180px;
+            height: 180px;
             border-radius: 50%;
-            border: 4px solid var(--accent);
+            border: 5px solid var(--accent);
             object-fit: cover;
-            background: #fff;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
         }
 
-        .sidebar h2 {
-            font-size: 1.2rem;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 8px;
-            margin-top: 30px;
-        }
+        .sidebar h2 { margin-bottom: 5px; font-size: 1.5rem; }
+        .sidebar p { font-size: 0.9rem; opacity: 0.8; margin-bottom: 20px; }
 
-        .contact-item {
-            margin: 15px 0;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-        }
+        .info-link { color: var(--accent); text-decoration: none; display: block; margin: 10px 0; }
 
-        /* ANIMASI BAHASA */
-        @keyframes fillBar {
-            from { width: 0; }
-            to { width: var(--target); }
-        }
-
-        .lang-item {
-            margin-bottom: 15px;
-        }
-
-        .lang-info {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.85rem;
-            margin-bottom: 5px;
-        }
-
+        /* PROGRESS BAR */
+        .lang-section { text-align: left; margin-top: 30px; }
         .progress-bar {
             background: rgba(255,255,255,0.1);
             height: 8px;
             border-radius: 10px;
-            overflow: hidden;
+            margin: 8px 0 15px 0;
         }
-
         .progress-fill {
             background: var(--accent);
             height: 100%;
-            width: var(--target);
-            animation: fillBar 2.5s ease-in-out forwards;
+            width: 0;
+            transition: width 2s cubic-bezier(0.1, 0, 0.2, 1);
         }
 
-        /* KONTEN UTAMA KANAN */
+        /* MAIN CONTENT */
         .main-content {
             flex: 2;
-            min-width: 380px;
-            padding: 50px;
+            min-width: 350px;
+            padding: 45px;
+        }
+
+        /* ACCORDION */
+        .accordion-item {
+            margin-bottom: 15px;
+            border-radius: 8px;
+            overflow: hidden;
+            border: 1px solid #eee;
+        }
+
+        .accordion-header {
+            width: 100%;
+            padding: 18px;
+            background: #fdfdfd;
+            border: none;
+            text-align: left;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: all 0.3s ease;
+        }
+
+        .accordion-header:hover { background: #f0f7ff; }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
             background: #fff;
         }
 
-        h1 {
-            font-size: 2.8rem;
-            margin: 0;
-            color: var(--primary);
-        }
+        .content-inner { padding: 20px; line-height: 1.7; color: #555; }
 
-        .tagline {
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 30px;
-            display: block;
-        }
-
-        .section-title {
-            color: var(--primary);
-            border-left: 5px solid var(--primary);
+        .edu-item {
             padding-left: 15px;
-            margin: 40px 0 20px 0;
-            font-size: 1.4rem;
-        }
-
-        .edu-card {
-            margin-bottom: 20px;
-            position: relative;
-            padding-left: 20px;
-            border-left: 1px solid #ddd;
-        }
-
-        .edu-card::before {
-            content: '';
-            position: absolute;
-            left: -6px;
-            top: 5px;
-            width: 10px;
-            height: 10px;
-            background: var(--accent);
-            border-radius: 50%;
-        }
-
-        .hobby-tags span {
-            display: inline-block;
-            background: #eee;
-            padding: 5px 15px;
-            border-radius: 20px;
-            margin: 5px;
-            font-size: 0.9rem;
+            border-left: 3px solid var(--accent);
+            margin-bottom: 15px;
         }
 
         @media (max-width: 768px) {
             .cv-container { flex-direction: column; }
-            .main-content { padding: 30px; }
         }
     </style>
 </head>
@@ -176,83 +129,109 @@
 
 <div class="cv-container">
     <div class="sidebar">
-        <div class="profile-box">
-            <img src="https://via.placeholder.com/160" alt="Athwal Dayfi Hikari" class="profile-img">
-            <p style="font-size: 0.9rem; opacity: 0.8;">Lahir Tahun: 2007</p>
-        </div>
-
-        <h2>Kontak</h2>
-        <div class="contact-item">📍 Kp.Andir, Kec.Baleendah, Bandung</div>
-        <div class="contact-item">📞 085179972033</div>
-        <div class="contact-item">📸 @athwaldayfii</div>
-
-        <h2>Kemampuan Bahasa</h2>
+        <img src="input_file_0.png" alt="Athwal Dayfi Hikari" class="profile-img">
         
-        <div class="lang-item">
-            <div class="lang-info"><span>Indonesia</span><span>100%</span></div>
-            <div class="progress-bar"><div class="progress-fill" style="--target: 100%;"></div></div>
+        <h2>Athwal Dayfi Hikari</h2>
+        <p>Lahir: 2007</p>
+        
+        <div style="text-align: left; font-size: 0.9rem;">
+            <div>📍 Kp.Andir, Kec.Baleendah, Kab.BANDUNG</div>
+            <div>📞 085179972033</div>
+            <a href="https://instagram.com/athwaldayfii" class="info-link">📸 @athwaldayfii</a>
         </div>
 
-        <div class="lang-item">
-            <div class="lang-info"><span>Sunda</span><span>100%</span></div>
-            <div class="progress-bar"><div class="progress-fill" style="--target: 100%;"></div></div>
+        <div class="lang-section">
+            <h4>Bahasa</h4>
+            Indonesia (100%) <div class="progress-bar"><div class="progress-fill" data-percent="100%"></div></div>
+            Sunda (100%) <div class="progress-bar"><div class="progress-fill" data-percent="100%"></div></div>
+            Inggris (20%) <div class="progress-bar"><div class="progress-fill" data-percent="20%"></div></div>
+            Jepang (10%) <div class="progress-bar"><div class="progress-fill" data-percent="10%"></div></div>
         </div>
-
-        <div class="lang-item">
-            <div class="lang-info"><span>Inggris</span><span>20%</span></div>
-            <div class="progress-bar"><div class="progress-fill" style="--target: 20%;"></div></div>
-        </div>
-
-        <div class="lang-item">
-            <div class="lang-info"><span>Jepang</span><span>10%</span></div>
-            <div class="progress-bar"><div class="progress-fill" style="--target: 10%;"></div></div>
-        </div>
-
-        <h2>Minat</h2>
-        <div class="contact-item">📈 Finance & Investment</div>
-        <div class="contact-item">🎮 Game</div>
-        <div class="contact-item">💻 Teknologi</div>
     </div>
 
     <div class="main-content">
-        <h1>Athwal Dayfi Hikari</h1>
-        <span class="tagline">Pelajar & Tech Enthusiast</span>
-
-        <h3 class="section-title">Tentang Diri</h3>
-        <p>Saya adalah seorang pelajar yang memiliki minat untuk belajar hal baru, bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.</p>
-
-        <h3 class="section-title">Pendidikan</h3>
-        <div class="edu-card">
-            <strong>SMA KP BALEENDAH</strong><br>
-            <span>Lulus 2026</span>
-        </div>
-        <div class="edu-card">
-            <strong>SMPN 1 CANGKUANG</strong><br>
-            <span>Lulus 2023</span>
-        </div>
-        <div class="edu-card">
-            <strong>SDN KARANGSETRA CILUNCAT</strong><br>
-            <span>Lulus 2020</span>
+        <h3 style="color: var(--primary); text-transform: uppercase; letter-spacing: 2px;">Portfolio Digital</h3>
+        
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                Tentang Diri <span>+</span>
+            </button>
+            <div class="accordion-content">
+                <div class="content-inner">
+                    Saya adalah seorang pelajar yang memiliki minat untuk belajar hal baru, bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.
+                </div>
+            </div>
         </div>
 
-        <h3 class="section-title">Keahlian & Pengalaman</h3>
-        <ul>
-            <li><strong>Kerjasama Tim:</strong> Mampu berkolaborasi secara aktif.</li>
-            <li><strong>Adaptasi:</strong> Cepat menyesuaikan diri dengan lingkungan sekitar.</li>
-            <li><strong>Pengalaman:</strong> Productivity Recall.</li>
-        </ul>
-
-        <h3 class="section-title">Hobby</h3>
-        <div class="hobby-tags">
-            <span>🎮 Bermain Game</span>
-            <span>📚 Membaca Komik</span>
-            <span>🎵 Musik</span>
+        <div class="accordion-item">
+            <button class="accordion-header" onclick="toggleAccordion(this)">
+                Pendidikan <span>+</span>
+            </button>
+            <div class="accordion-content">
+                <div class="content-inner">
+                    <div class="edu-item">
+                        <strong>SMA KP BALEENDAH</strong> (Lulus 2026)
+                    </div>
+                    <div class="edu-item">
+                        <strong>SMPN 1 CANGKUANG</strong> (Lulus 2023)
+                    </div>
+                    <div class="edu-item">
+                        <strong>SDN KARANGSETRA CILUNCAT</strong> (Lulus 2020)
+                    </div>
+                </div>
+            </div>
         </div>
 
-        <h3 class="section-title">Sertifikat</h3>
-        <p style="color: #888; font-style: italic;">Belum memiliki sertifikat.</p>
+        <h4 style="margin-top:30px; color: var(--primary);">Hobby & Minat</h4>
+        <p>🎮 Bermain game, 📖 Membaca komik, 🎧 Mendengarkan musik</p>
+        <p><strong>Fokus:</strong> Finance & Investment, Teknologi</p>
     </div>
 </div>
+
+<script>
+    // Audio Click Efek
+    const clickSound = new Audio('https://www.soundjay.com/buttons/sounds/button-16.mp3');
+
+    function toggleAccordion(header) {
+        // Play Sound
+        clickSound.currentTime = 0;
+        clickSound.play();
+
+        const content = header.nextElementSibling;
+        const allContents = document.querySelectorAll('.accordion-content');
+        const allHeaders = document.querySelectorAll('.accordion-header');
+
+        // Logic Auto-Close
+        allContents.forEach((item, index) => {
+            if (item !== content) {
+                item.style.maxHeight = null;
+                allHeaders[index].querySelector('span').innerText = '+';
+                allHeaders[index].style.background = '#fdfdfd';
+            }
+        });
+
+        // Toggle Aktif
+        if (content.style.maxHeight) {
+            content.style.maxHeight = null;
+            header.querySelector('span').innerText = '+';
+            header.style.background = '#fdfdfd';
+        } else {
+            content.style.maxHeight = content.scrollHeight + "px";
+            header.querySelector('span').innerText = '-';
+            header.style.background = '#f0f7ff';
+        }
+    }
+
+    // Animasi Progress Bar saat Halaman Terbuka
+    window.onload = () => {
+        const fills = document.querySelectorAll('.progress-fill');
+        setTimeout(() => {
+            fills.forEach(fill => {
+                fill.style.width = fill.getAttribute('data-percent');
+            });
+        }, 300);
+    }
+</script>
 
 </body>
 </html>
