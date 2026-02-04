@@ -74,16 +74,23 @@
       background: #eee;
       border-radius: 20px;
       overflow: hidden;
-      margin-bottom: 15px;
+      margin: 6px 0 18px;
       height: 14px;
     }
     .fill {
       height: 100%;
-      width: 0;
+      width: 1%;
       background: linear-gradient(90deg, #1e88e5, #43a047, #fdd835);
       border-radius: 20px;
-      animation: load 2s forwards;
+      transition: width 2s ease;
     }
+    .language span {
+      display: flex;
+      justify-content: space-between;
+      font-weight: bold;
+      margin-top: 10px;
+    }
+
     @keyframes load {
       from { width: 1%; }
       to { width: var(--level); }
@@ -146,8 +153,26 @@
     <section>
       <h2>Bahasa</h2>
       <div class="language">
-        <p>Bahasa Indonesia</p>
-        <div class="bar"><div class="fill" style="--level:100%"></div></div>
+        <div class="lang-item">
+          <span>Bahasa Indonesia <strong class="percent">0%</strong></span>
+          <div class="bar"><div class="fill" data-level="100"></div></div>
+        </div>
+
+        <div class="lang-item">
+          <span>Bahasa Inggris <strong class="percent">0%</strong></span>
+          <div class="bar"><div class="fill" data-level="20"></div></div>
+        </div>
+
+        <div class="lang-item">
+          <span>Bahasa Sunda <strong class="percent">0%</strong></span>
+          <div class="bar"><div class="fill" data-level="100"></div></div>
+        </div>
+
+        <div class="lang-item">
+          <span>Bahasa Jepang <strong class="percent">0%</strong></span>
+          <div class="bar"><div class="fill" data-level="10"></div></div>
+        </div>
+      </div></div>
 
         <p>Bahasa Inggris</p>
         <div class="bar"><div class="fill" style="--level:20%"></div></div>
@@ -181,5 +206,43 @@
       © 2026 – CV Website Athwal Dayfi Hikari
     </footer>
   </div>
+  <script>
+    window.addEventListener("load", () => {
+      document.querySelectorAll(".fill").forEach(bar => {
+        bar.style.width = "1%";
+        setTimeout(() => {
+          bar.style.width = bar.style.getPropertyValue("--level");
+        }, 150);
+      });
+    });
+  </script>
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const fills = entry.target.querySelectorAll('.fill');
+          fills.forEach(fill => {
+            const level = fill.dataset.level;
+            fill.style.width = level + '%';
+
+            const percentText = fill.parentElement.previousElementSibling.querySelector('.percent');
+            let count = 0;
+            const interval = setInterval(() => {
+              if (count >= level) {
+                clearInterval(interval);
+              } else {
+                count++;
+                percentText.textContent = count + '%';
+              }
+            }, 20);
+          });
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.4 });
+
+    const languageSection = document.querySelector('.language');
+    observer.observe(languageSection);
+  </script>
 </body>
 </html>
