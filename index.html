@@ -1,292 +1,258 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CV Athwal Dayfi Hikari</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background: linear-gradient(135deg, #1e88e5, #43a047, #fdd835);
-      color: #333;
-    }
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      background: #ffffff;
-      border-radius: 12px;
-      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
-      overflow: hidden;
-    }
-    header {
-      background: linear-gradient(90deg, #1e88e5, #43a047);
-      color: white;
-      padding: 30px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
-    }
-    header img {
-      width: 130px;
-      height: 130px;
-      border-radius: 50%;
-      object-fit: cover;
-      padding: 4px;
-      background: conic-gradient(#1e88e5, #43a047, #fdd835, #1e88e5);
-      animation: spin 8s linear infinite;
-    }
-    @keyframes spin {
-      from { transform: rotate(0deg); }
-      to { transform: rotate(360deg); }
-    }
-    header h1 {
-      margin: 0;
-      font-size: 28px;
-    }
-    header p {
-      margin: 5px 0 0;
-      font-size: 14px;
-    }
-    section {
-      padding: 25px 30px;
-      border-bottom: 1px solid #eee;
-    }
-    section h2 {
-      color: #1e88e5;
-      border-left: 6px solid #fdd835;
-      padding-left: 10px;
-    }
-    ul {
-      padding-left: 20px;
-    }
-    .tag {
-      display: inline-block;
-      background: #e3f2fd;
-      color: #1e88e5;
-      padding: 6px 12px;
-      border-radius: 20px;
-      margin: 5px 5px 0 0;
-      font-size: 13px;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Website - Athwal Dayfi Hikari</title>
+    <style>
+        :root {
+            --primary: #1a2a6c;
+            --secondary: #2c3e50;
+            --accent: #00d2ff;
+            --text-light: #ecf0f1;
+            --text-dark: #333;
+            --bg-body: #f0f2f5;
+        }
 
-    /* ===== Animasi Bahasa ===== */
-    .language p {
-      margin: 10px 0 5px;
-      font-weight: bold;
-    }
-    .bar {
-      width: 100%;
-      background: #eee;
-      border-radius: 20px;
-      overflow: hidden;
-      margin: 6px 0 18px;
-      height: 14px;
-    }
-    .fill {
-      height: 100%;
-      width: 1%;
-      background: linear-gradient(90deg, #1e88e5, #43a047, #fdd835);
-      border-radius: 20px;
-      transition: width 2s ease;
-    }
-    .language span {
-      display: flex;
-      justify-content: space-between;
-      font-weight: bold;
-      margin-top: 10px;
-    }
+        * {
+            box-sizing: border-box;
+        }
 
-    @keyframes load {
-      from { width: 1%; }
-      to { width: var(--level); }
-    }
+        body {
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--bg-body);
+            color: var(--text-dark);
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
 
-        .accordion-title {
-      cursor: pointer;
-      user-select: none;
-      position: relative;
-    }
-    .accordion-title::after {
-      content: '▼';
-      position: absolute;
-      right: 0;
-      font-size: 14px;
-      transition: transform 0.3s ease;
-    }
-    .accordion.active .accordion-title::after {
-      transform: rotate(180deg);
-    }
-    .accordion-content {
-      max-height: 0;
-      overflow: hidden;
-      transition: max-height 0.5s ease, opacity 0.4s ease;
-      opacity: 0;
-    }
-    .accordion.active .accordion-content {
-      max-height: 300px;
-      opacity: 1;
-    }
+        .cv-container {
+            width: 100%;
+            max-width: 950px;
+            background: #fff;
+            display: flex;
+            flex-wrap: wrap;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+            border-radius: 8px;
+            overflow: hidden;
+        }
 
-    footer {
-      text-align: center;
-      padding: 15px;
-      background: #f1f8e9;
-      font-size: 13px;
-    }
-  </style>
+        /* SIDEBAR KIRI */
+        .sidebar {
+            flex: 1;
+            min-width: 320px;
+            background: linear-gradient(to bottom, #1a2a6c, #203a43, #2c5364);
+            color: var(--text-light);
+            padding: 40px 30px;
+        }
+
+        .profile-box {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .profile-img {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            border: 4px solid var(--accent);
+            object-fit: cover;
+            background: #fff;
+            margin-bottom: 15px;
+        }
+
+        .sidebar h2 {
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 8px;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            margin: 15px 0;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+        }
+
+        /* ANIMASI BAHASA */
+        @keyframes fillBar {
+            from { width: 0; }
+            to { width: var(--target); }
+        }
+
+        .lang-item {
+            margin-bottom: 15px;
+        }
+
+        .lang-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            margin-bottom: 5px;
+        }
+
+        .progress-bar {
+            background: rgba(255,255,255,0.1);
+            height: 8px;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress-fill {
+            background: var(--accent);
+            height: 100%;
+            width: var(--target);
+            animation: fillBar 2.5s ease-in-out forwards;
+        }
+
+        /* KONTEN UTAMA KANAN */
+        .main-content {
+            flex: 2;
+            min-width: 380px;
+            padding: 50px;
+            background: #fff;
+        }
+
+        h1 {
+            font-size: 2.8rem;
+            margin: 0;
+            color: var(--primary);
+        }
+
+        .tagline {
+            color: var(--secondary);
+            font-weight: 600;
+            margin-bottom: 30px;
+            display: block;
+        }
+
+        .section-title {
+            color: var(--primary);
+            border-left: 5px solid var(--primary);
+            padding-left: 15px;
+            margin: 40px 0 20px 0;
+            font-size: 1.4rem;
+        }
+
+        .edu-card {
+            margin-bottom: 20px;
+            position: relative;
+            padding-left: 20px;
+            border-left: 1px solid #ddd;
+        }
+
+        .edu-card::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 5px;
+            width: 10px;
+            height: 10px;
+            background: var(--accent);
+            border-radius: 50%;
+        }
+
+        .hobby-tags span {
+            display: inline-block;
+            background: #eee;
+            padding: 5px 15px;
+            border-radius: 20px;
+            margin: 5px;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            .cv-container { flex-direction: column; }
+            .main-content { padding: 30px; }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <!-- Ganti src dengan foto Anda -->
-      <img src="p.jpg" alt="Foto Athwal Dayfi Hikari" />
-      <div>
+
+<div class="cv-container">
+    <div class="sidebar">
+        <div class="profile-box">
+            <img src="https://via.placeholder.com/160" alt="Athwal Dayfi Hikari" class="profile-img">
+            <p style="font-size: 0.9rem; opacity: 0.8;">Lahir Tahun: 2007</p>
+        </div>
+
+        <h2>Kontak</h2>
+        <div class="contact-item">📍 Kp.Andir, Kec.Baleendah, Bandung</div>
+        <div class="contact-item">📞 085179972033</div>
+        <div class="contact-item">📸 @athwaldayfii</div>
+
+        <h2>Kemampuan Bahasa</h2>
+        
+        <div class="lang-item">
+            <div class="lang-info"><span>Indonesia</span><span>100%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="--target: 100%;"></div></div>
+        </div>
+
+        <div class="lang-item">
+            <div class="lang-info"><span>Sunda</span><span>100%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="--target: 100%;"></div></div>
+        </div>
+
+        <div class="lang-item">
+            <div class="lang-info"><span>Inggris</span><span>20%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="--target: 20%;"></div></div>
+        </div>
+
+        <div class="lang-item">
+            <div class="lang-info"><span>Jepang</span><span>10%</span></div>
+            <div class="progress-bar"><div class="progress-fill" style="--target: 10%;"></div></div>
+        </div>
+
+        <h2>Minat</h2>
+        <div class="contact-item">📈 Finance & Investment</div>
+        <div class="contact-item">🎮 Game</div>
+        <div class="contact-item">💻 Teknologi</div>
+    </div>
+
+    <div class="main-content">
         <h1>Athwal Dayfi Hikari</h1>
-        <p>Pelajar | Lahir 2007</p>
-        <p>📞 085179972033 | 📍 Kp. Andir, Kec. Baleendah, Kab. Bandung</p>
-      </div>
-    </header>
+        <span class="tagline">Pelajar & Tech Enthusiast</span>
 
-    <section class="accordion">
-      <h2 class="accordion-title">Tentang Diri (Klik)</h2>
-      <div class="accordion-content">
+        <h3 class="section-title">Tentang Diri</h3>
         <p>Saya adalah seorang pelajar yang memiliki minat untuk belajar hal baru, bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.</p>
-      </div>
-    </section>
 
-    <section>
-      <h2>Hobby</h2>
-      <ul>
-        <li>Bermain game</li>
-        <li>Membaca komik</li>
-        <li>Mendengarkan musik</li>
-      </ul>
-    </section>
+        <h3 class="section-title">Pendidikan</h3>
+        <div class="edu-card">
+            <strong>SMA KP BALEENDAH</strong><br>
+            <span>Lulus 2026</span>
+        </div>
+        <div class="edu-card">
+            <strong>SMPN 1 CANGKUANG</strong><br>
+            <span>Lulus 2023</span>
+        </div>
+        <div class="edu-card">
+            <strong>SDN KARANGSETRA CILUNCAT</strong><br>
+            <span>Lulus 2020</span>
+        </div>
 
-    <section class="accordion">
-      <h2 class="accordion-title">Pendidikan (Klik)</h2>
-      <div class="accordion-content">
+        <h3 class="section-title">Keahlian & Pengalaman</h3>
         <ul>
-          <li>SDN Karang Setra Ciluncat – Lulus 2020</li>
-          <li>SMPN 1 Cangkuang – Lulus 2023</li>
-          <li>SMA KP Baleendah – Lulus 2026</li>
+            <li><strong>Kerjasama Tim:</strong> Mampu berkolaborasi secara aktif.</li>
+            <li><strong>Adaptasi:</strong> Cepat menyesuaikan diri dengan lingkungan sekitar.</li>
+            <li><strong>Pengalaman:</strong> Productivity Recall.</li>
         </ul>
-      </div>
-    </section>
 
-    <section>
-      <h2>Skill</h2>
-      <span class="tag">Kerja Sama</span>
-      <span class="tag">Adaptasi Lingkungan</span>
-    </section>
-
-    <section>
-      <h2>Experience</h2>
-      <p>Productivity Recall</p>
-    </section>
-
-    <section>
-      <h2>Bahasa</h2>
-      <div class="language">
-        <div class="lang-item">
-          <span>Bahasa Indonesia <strong class="percent">0%</strong></span>
-          <div class="bar"><div class="fill" data-level="100"></div></div>
+        <h3 class="section-title">Hobby</h3>
+        <div class="hobby-tags">
+            <span>🎮 Bermain Game</span>
+            <span>📚 Membaca Komik</span>
+            <span>🎵 Musik</span>
         </div>
 
-        <div class="lang-item">
-          <span>Bahasa Inggris <strong class="percent">0%</strong></span>
-          <div class="bar"><div class="fill" data-level="20"></div></div>
-        </div>
+        <h3 class="section-title">Sertifikat</h3>
+        <p style="color: #888; font-style: italic;">Belum memiliki sertifikat.</p>
+    </div>
+</div>
 
-        <div class="lang-item">
-          <span>Bahasa Sunda <strong class="percent">0%</strong></span>
-          <div class="bar"><div class="fill" data-level="100"></div></div>
-        </div>
-
-        <div class="lang-item">
-          <span>Bahasa Jepang <strong class="percent">0%</strong></span>
-          <div class="bar"><div class="fill" data-level="10"></div></div>
-        </div>
-      </div></div>
-
-        <p>Bahasa Inggris</p>
-        <div class="bar"><div class="fill" style="--level:20%"></div></div>
-
-        <p>Bahasa Sunda</p>
-        <div class="bar"><div class="fill" style="--level:100%"></div></div>
-
-        <p>Bahasa Jepang</p>
-        <div class="bar"><div class="fill" style="--level:10%"></div></div>
-      </div>
-    </section>
-
-    <section>
-      <h2>Social Media</h2>
-      <p>Instagram: <strong>@athwaldayfii</strong></p>
-    </section>
-
-    <section>
-      <h2>Interest</h2>
-      <span class="tag">Finance & Investment</span>
-      <span class="tag">Game</span>
-      <span class="tag">Teknologi</span>
-    </section>
-
-    <section>
-      <h2>Sertifikat</h2>
-      <p>Belum memiliki sertifikat.</p>
-    </section>
-
-    <footer>
-      © 2026 – CV Website Athwal Dayfi Hikari
-    </footer>
-  </div>
-  <script>
-    window.addEventListener("load", () => {
-      document.querySelectorAll(".fill").forEach(bar => {
-        bar.style.width = "1%";
-        setTimeout(() => {
-          bar.style.width = bar.style.getPropertyValue("--level");
-        }, 150);
-      });
-    });
-  </script>
-  <script>
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const fills = entry.target.querySelectorAll('.fill');
-          fills.forEach(fill => {
-            const level = fill.dataset.level;
-            fill.style.width = level + '%';
-
-            const percentText = fill.parentElement.previousElementSibling.querySelector('.percent');
-            let count = 0;
-            const interval = setInterval(() => {
-              if (count >= level) {
-                clearInterval(interval);
-              } else {
-                count++;
-                percentText.textContent = count + '%';
-              }
-            }, 20);
-          });
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.4 });
-
-    const languageSection = document.querySelector('.language');
-    observer.observe(languageSection);
-  </script>
-  <script>
-    /* Accordion Klik */
-    document.querySelectorAll('.accordion-title').forEach(title => {
-      title.addEventListener('click', () => {
-        title.parentElement.classList.toggle('active');
-      });
-    });
-  </script>
 </body>
 </html>
