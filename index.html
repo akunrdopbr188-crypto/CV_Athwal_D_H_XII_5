@@ -21,7 +21,7 @@
             transition: max-height 0.3s ease-out, padding 0.3s ease;
         }
         .accordion-active .accordion-content {
-            max-height: 200px; /* Sesuaikan dengan panjang teks */
+            max-height: 200px; 
             padding-top: 1rem;
         }
         .arrow-icon { transition: transform 0.3s ease; }
@@ -35,8 +35,8 @@
             <div class="w-32 h-32 bg-slate-400 rounded-full mx-auto mb-4 border-4 border-white/20 shadow-2xl overflow-hidden">
                 <img src="https://via.placeholder.com/150" alt="Athwal Dayfi Hikari" class="w-full h-full object-cover">
             </div>
-            <h1 class="text-4xl font-extrabold tracking-tight">ATHWAL DAYFI HIKARI</h1>
-            <p class="text-blue-200 mt-2">Pelajar | Future Tech Specialist</p>
+            <h1 class="text-4xl font-extrabold tracking-tight uppercase">Athwal Dayfi Hikari</h1>
+            <p class="text-blue-200 mt-2">Pelajar | Future Tech & Finance Specialist</p>
         </div>
     </header>
 
@@ -68,18 +68,30 @@
             </section>
 
             <section class="bg-white p-6 rounded-2xl shadow-md">
-                <h2 class="text-lg font-bold mb-4 border-b pb-2">Kemampuan Bahasa</h2>
-                <div class="space-y-4">
+                <h2 class="text-lg font-bold mb-4 border-b pb-2 text-slate-700 font-mono tracking-widest uppercase">Bahasa</h2>
+                <div class="space-y-5">
                     <div>
-                        <div class="flex justify-between text-xs font-bold mb-1"><span>Indonesia</span><span>100%</span></div>
-                        <div class="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
+                        <div class="flex justify-between text-xs font-bold mb-1"><span>INDONESIA</span><span>100%</span></div>
+                        <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
                             <div class="progress-fill bg-blue-600 h-full" style="width: 100%"></div>
                         </div>
                     </div>
                     <div>
-                        <div class="flex justify-between text-xs font-bold mb-1"><span>Sunda</span><span>100%</span></div>
-                        <div class="w-full bg-gray-100 h-1.5 rounded-full overflow-hidden">
-                            <div class="progress-fill bg-blue-500 h-full" style="width: 100%"></div>
+                        <div class="flex justify-between text-xs font-bold mb-1"><span>SUNDA</span><span>100%</span></div>
+                        <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                            <div class="progress-fill bg-cyan-500 h-full" style="width: 100%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-bold mb-1"><span>INGGRIS</span><span>20%</span></div>
+                        <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                            <div class="progress-fill bg-indigo-400 h-full" style="width: 20%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-xs font-bold mb-1"><span>JEPANG</span><span>10%</span></div>
+                        <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                            <div class="progress-fill bg-slate-400 h-full" style="width: 10%"></div>
                         </div>
                     </div>
                 </div>
@@ -93,36 +105,55 @@
                     <div class="relative">
                         <div class="absolute -left-[31px] top-1 w-4 h-4 bg-blue-600 rounded-full border-4 border-white"></div>
                         <h3 class="font-bold">SMA KP BALEENDAH</h3>
-                        <p class="text-sm text-blue-600">Lulus 2026</p>
+                        <p class="text-sm text-blue-600">Lulus 2026 (Target)</p>
                     </div>
                     <div class="relative">
                         <div class="absolute -left-[31px] top-1 w-4 h-4 bg-slate-300 rounded-full border-4 border-white"></div>
                         <h3 class="font-bold text-slate-700">SMPN 1 CANGKUANG</h3>
                         <p class="text-sm text-slate-500">Lulus 2023</p>
                     </div>
+                    <div class="relative">
+                        <div class="absolute -left-[31px] top-1 w-4 h-4 bg-slate-200 rounded-full border-4 border-white"></div>
+                        <h3 class="font-bold text-slate-700 text-sm">SDN KARANGSETRA CILUNCAT</h3>
+                        <p class="text-xs text-slate-400">Lulus 2020</p>
+                    </div>
                 </div>
             </section>
 
             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
-                    <h3 class="font-bold text-blue-800 mb-2 font-mono uppercase tracking-tighter">Kontak</h3>
-                    <p class="text-sm text-blue-900"><i class="fas fa-phone mr-2"></i> 0857-2916-1289</p>
-                    <p class="text-sm text-blue-900 mt-1"><i class="fab fa-instagram mr-2"></i> @athwaldayfii</p>
+                    <h3 class="font-bold text-blue-800 mb-3 underline decoration-2">Informasi Kontak</h3>
+                    <p class="text-sm text-blue-900 mb-2"><i class="fas fa-phone mr-2"></i> +62 857-2916-1289</p>
+                    <p class="text-sm text-blue-900 mb-2"><i class="fab fa-instagram mr-2"></i> @athwaldayfii</p>
+                    <p class="text-xs text-blue-700 italic"><i class="fas fa-map-marker-alt mr-2"></i> Baleendah, Bandung</p>
                 </div>
                 <div class="bg-slate-800 p-6 rounded-2xl text-white">
-                    <h3 class="font-bold mb-2 font-mono uppercase tracking-tighter text-blue-400">Minat</h3>
-                    <p class="text-xs">Finance, Tech, & Gaming</p>
+                    <h3 class="font-bold mb-3 text-blue-400">Keahlian Utama</h3>
+                    <ul class="text-xs space-y-2">
+                        <li><i class="fas fa-check text-green-400 mr-2"></i> Kerja Tim & Kolaborasi</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i> Adaptasi Lingkungan Cepat</li>
+                        <li><i class="fas fa-check text-green-400 mr-2"></i> Productivity Recall</li>
+                    </ul>
                 </div>
             </div>
+
+            <section class="bg-white p-6 rounded-2xl shadow-md">
+                <h2 class="text-xl font-bold mb-4 flex items-center"><i class="fas fa-star mr-2 text-yellow-500"></i>Bidang Minat</h2>
+                <div class="flex flex-wrap gap-3">
+                    <span class="px-4 py-2 bg-blue-100 text-blue-700 rounded-lg text-xs font-bold">FINANCE & INVESTMENT</span>
+                    <span class="px-4 py-2 bg-purple-100 text-purple-700 rounded-lg text-xs font-bold">GAMING</span>
+                    <span class="px-4 py-2 bg-emerald-100 text-emerald-700 rounded-lg text-xs font-bold">TEKNOLOGI</span>
+                </div>
+            </section>
         </div>
     </main>
 
+    <footer class="py-12 text-center text-slate-400 text-xs">
+        <p>CV Web Athwal Dayfi Hikari &copy; 2026 | Built with HTML, Tailwind & JS</p>
+    </footer>
+
     <script>
         function toggleAccordion(element) {
-            // Menutup accordion lain jika ingin mode satu terbuka saja (opsional)
-            // const items = document.querySelectorAll('.accordion-item');
-            // items.forEach(item => { if(item !== element) item.classList.remove('accordion-active'); });
-
             element.classList.toggle('accordion-active');
         }
     </script>
