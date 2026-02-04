@@ -3,258 +3,174 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CV Website - Athwal Dayfi Hikari</title>
+    <title>CV Athwal Dayfi Hikari</title>
     <style>
         :root {
-            --primary: #1a2a6c;
-            --secondary: #2c3e50;
-            --accent: #00d2ff;
-            --text-light: #ecf0f1;
-            --text-dark: #333;
-            --bg-body: #f0f2f5;
+            --primary-color: #2c3e50;
+            --accent-color: #3498db;
+            --text-color: #333;
+            --bg-color: #f4f7f6;
         }
-
-        * { box-sizing: border-box; }
 
         body {
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            background-color: var(--bg-body);
-            color: var(--text-dark);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
             margin: 0;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
+            background-color: var(--bg-color);
+            color: var(--text-color);
         }
 
-        .cv-container {
-            width: 100%;
-            max-width: 950px;
+        .container {
+            max-width: 900px;
+            margin: 20px auto;
             background: #fff;
+            padding: 40px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+
+        header {
             display: flex;
-            flex-wrap: wrap;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-            border-radius: 12px;
-            overflow: hidden;
+            align-items: center;
+            border-bottom: 2px solid var(--accent-color);
+            padding-bottom: 20px;
+            margin-bottom: 30px;
         }
-
-        /* SIDEBAR KIRI */
-        .sidebar {
-            flex: 1;
-            min-width: 320px;
-            background: linear-gradient(to bottom, #1a2a6c, #203a43, #2c5364);
-            color: var(--text-light);
-            padding: 40px 30px;
-        }
-
-        .profile-box { text-align: center; margin-bottom: 40px; }
 
         .profile-img {
-            width: 160px;
-            height: 160px;
+            width: 150px;
+            height: 150px;
             border-radius: 50%;
-            border: 4px solid var(--accent);
             object-fit: cover;
-            background: #fff;
-            margin-bottom: 15px;
+            margin-right: 30px;
+            border: 4px solid var(--accent-color);
         }
 
-        .sidebar h2 {
-            font-size: 1.2rem;
+        .header-text h1 {
+            margin: 0;
+            color: var(--primary-color);
+            font-size: 2.5em;
+        }
+
+        .contact-info {
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        section {
+            margin-bottom: 25px;
+        }
+
+        h2 {
+            color: var(--accent-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 10px;
             text-transform: uppercase;
-            letter-spacing: 1.5px;
-            border-bottom: 2px solid var(--accent);
-            padding-bottom: 8px;
-            margin-top: 30px;
+            font-size: 1.2em;
         }
 
-        .contact-item { margin: 15px 0; font-size: 0.9rem; display: flex; align-items: center; }
-
-        /* PROGRESS BAR BAHASA */
-        .lang-item { margin-bottom: 15px; }
-        .lang-info { display: flex; justify-content: space-between; font-size: 0.85rem; margin-bottom: 5px; }
-        .progress-bar { background: rgba(255,255,255,0.1); height: 8px; border-radius: 10px; overflow: hidden; }
-        .progress-fill { 
-            background: var(--accent); 
-            height: 100%; 
-            width: 0; 
-            transition: width 2s ease-in-out; 
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
         }
 
-        /* KONTEN UTAMA KANAN */
-        .main-content { flex: 2; min-width: 380px; padding: 50px; background: #fff; }
-
-        h1 { font-size: 2.8rem; margin: 0; color: var(--primary); }
-        .tagline { color: var(--secondary); font-weight: 600; margin-bottom: 30px; display: block; }
-
-        /* ACCORDION STYLE */
-        .accordion-section { margin-top: 20px; }
-
-        .accordion-btn {
-            width: 100%;
-            background: #f8f9fa;
-            border: none;
-            border-left: 5px solid var(--primary);
-            padding: 15px 20px;
-            text-align: left;
-            font-size: 1.2rem;
-            font-weight: bold;
-            color: var(--primary);
-            cursor: pointer;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            transition: 0.3s;
-            margin-bottom: 5px;
+        .skill-bar {
+            background: #eee;
+            border-radius: 5px;
+            margin-bottom: 10px;
         }
 
-        .accordion-btn:hover { background: #eef2f7; }
-
-        .panel {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease-out;
-            background-color: white;
-            padding: 0 20px;
+        .skill-progress {
+            background: var(--accent-color);
+            height: 10px;
+            border-radius: 5px;
         }
 
-        .panel-content { padding: 20px 0; border-bottom: 1px solid #eee; }
-
-        .edu-card { margin-bottom: 15px; padding-left: 15px; border-left: 2px solid var(--accent); }
-
-        .hobby-tags span {
-            display: inline-block; background: #eee; padding: 5px 15px;
-            border-radius: 20px; margin: 5px; font-size: 0.9rem;
+        ul {
+            padding-left: 20px;
         }
 
-        @media (max-width: 768px) {
-            .cv-container { flex-direction: column; }
-            .main-content { padding: 30px; }
+        .footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 0.8em;
+            color: #888;
+        }
+
+        @media (max-width: 600px) {
+            header { flex-direction: column; text-align: center; }
+            .profile-img { margin-right: 0; margin-bottom: 20px; }
+            .grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
 
-<div class="cv-container">
-    <div class="sidebar">
-        <div class="profile-box">
-            <img src="input_file_0.png" alt="Athwal Dayfi Hikari" class="profile-img">
-            <p style="font-size: 0.9rem; opacity: 0.8;">Lahir Tahun: 2007</p>
+<div class="container">
+    <header>
+        <img src="foto-athwal.png" alt="Athwal Dayfi Hikari" class="profile-img">
+        <div class="header-text">
+            <h1>Athwal Dayfi Hikari</h1>
+            <p class="contact-info">
+                📍 Kp. Andir, Kec. Baleendah, Kab. Bandung <br>
+                📞 085179972033 | 📸 @tri891
+            </p>
         </div>
+    </header>
 
-        <h2>Kontak</h2>
-        <div class="contact-item">📍 Kp.Andir, Kec.Baleendah, Bandung</div>
-        <div class="contact-item">📞 085179972033</div>
-        <div class="contact-item">📸 @athwaldayfii</div>
+    <section>
+        <h2>Tentang Diri</h2>
+        <p>Saya adalah seorang pelajar kelahiran 2007 yang memiliki minat tinggi untuk belajar hal baru. Saya dikenal sebagai pribadi yang bertanggung jawab, serta mampu bekerja secara mandiri maupun dalam tim dengan efektif.</p>
+    </section>
 
-        <h2>Kemampuan Bahasa</h2>
-        <div class="lang-item">
-            <div class="lang-info"><span>Indonesia</span><span>100%</span></div>
-            <div class="progress-bar"><div class="progress-fill" data-percent="100%"></div></div>
-        </div>
-        <div class="lang-item">
-            <div class="lang-info"><span>Sunda</span><span>100%</span></div>
-            <div class="progress-bar"><div class="progress-fill" data-percent="100%"></div></div>
-        </div>
-        <div class="lang-item">
-            <div class="lang-info"><span>Inggris</span><span>20%</span></div>
-            <div class="progress-bar"><div class="progress-fill" data-percent="20%"></div></div>
-        </div>
+    <div class="grid">
+        <section>
+            <h2>Pendidikan</h2>
+            <ul>
+                <li><strong>SMA KP BALEENDAH</strong> (Lulus 2026)</li>
+                <li><strong>SMPN 1 CANGKUANG</strong> (Lulus 2023)</li>
+                <li><strong>SDN 1 KARANGSETRA CILUNCAT</strong> (Lulus 2020)</li>
+            </ul>
+        </section>
 
-        <h2>Minat</h2>
-        <div class="contact-item">📈 Finance & Investment</div>
-        <div class="contact-item">🎮 Game</div>
-        <div class="contact-item">💻 Teknologi</div>
+        <section>
+            <h2>Bahasa</h2>
+            <p>Indonesia (100%)</p>
+            <div class="skill-bar"><div class="skill-progress" style="width: 100%;"></div></div>
+            <p>Sunda (100%)</p>
+            <div class="skill-bar"><div class="skill-progress" style="width: 100%;"></div></div>
+            <p>Inggris (20%)</p>
+            <div class="skill-bar"><div class="skill-progress" style="width: 20%;"></div></div>
+            <p>Jepang (10%)</p>
+            <div class="skill-bar"><div class="skill-progress" style="width: 10%;"></div></div>
+        </section>
     </div>
 
-    <div class="main-content">
-        <h1>Athwal Dayfi Hikari</h1>
-        <span class="tagline">Pelajar & Tech Enthusiast</span>
+    <hr>
 
-        <div class="accordion-section">
-            <button class="accordion-btn">Tentang Diri <span>+</span></button>
-            <div class="panel">
-                <div class="panel-content">
-                    Saya adalah seorang pelajar yang memiliki minat untuk belajar hal baru, bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.
-                </div>
-            </div>
+    <div class="grid">
+        <section>
+            <h2>Keahlian & Pengalaman</h2>
+            <ul>
+                <li>Kerjasama Tim & Adaptasi Lingkungan</li>
+                <li><strong>Pengalaman:</strong> Productivity Recall</li>
+            </ul>
+        </section>
 
-            <button class="accordion-btn">Pendidikan <span>+</span></button>
-            <div class="panel">
-                <div class="panel-content">
-                    <div class="edu-card">
-                        <strong>SMA KP BALEENDAH</strong><br><span>Lulus 2026</span>
-                    </div>
-                    <div class="edu-card">
-                        <strong>SMPN 1 CANGKUANG</strong><br><span>Lulus 2023</span>
-                    </div>
-                    <div class="edu-card">
-                        <strong>SDN KARANGSETRA CILUNCAT</strong><br><span>Lulus 2020</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+        <section>
+            <h2>Minat & Hobby</h2>
+            <ul>
+                <li><strong>Minat:</strong> Finance & Investment, Game, Teknologi</li>
+                <li><strong>Hobby:</strong> Main Game, Baca Komik, Musik</li>
+            </ul>
+        </section>
+    </div>
 
-        <h3 style="color: var(--primary); margin-top: 30px;">Keahlian & Pengalaman</h3>
-        <ul>
-            <li><strong>Kerjasama Tim:</strong> Mampu berkolaborasi secara aktif.</li>
-            <li><strong>Adaptasi:</strong> Cepat menyesuaikan diri dengan lingkungan sekitar.</li>
-            <li><strong>Pengalaman:</strong> Productivity Recall.</li>
-        </ul>
-
-        <h3 style="color: var(--primary);">Hobby</h3>
-        <div class="hobby-tags">
-            <span>🎮 Bermain Game</span>
-            <span>📚 Membaca Komik</span>
-            <span>🎵 Musik</span>
-        </div>
+    <div class="footer">
+        &copy; 2024 Athwal Dayfi Hikari - Digital CV
     </div>
 </div>
-
-<script>
-    // Sound Effect
-    const clickSound = new Audio('https://www.soundjay.com/buttons/sounds/button-16.mp3');
-
-    // Accordion Logic
-    const acc = document.getElementsByClassName("accordion-btn");
-    
-    for (let i = 0; i < acc.length; i++) {
-        acc[i].addEventListener("click", function() {
-            // Mainkan Suara
-            clickSound.currentTime = 0;
-            clickSound.play();
-
-            // Auto-Close: Tutup panel lain
-            for (let j = 0; j < acc.length; j++) {
-                if (acc[j] !== this) {
-                    acc[j].classList.remove("active");
-                    acc[j].nextElementSibling.style.maxHeight = null;
-                    acc[j].querySelector("span").innerHTML = "+";
-                }
-            }
-
-            // Toggle panel yang diklik
-            this.classList.toggle("active");
-            const panel = this.nextElementSibling;
-            const icon = this.querySelector("span");
-
-            if (panel.style.maxHeight) {
-                panel.style.maxHeight = null;
-                icon.innerHTML = "+";
-            } else {
-                panel.style.maxHeight = panel.scrollHeight + "px";
-                icon.innerHTML = "-";
-            }
-        });
-    }
-
-    // Animasi Progress Bar saat load
-    window.onload = () => {
-        const fills = document.querySelectorAll('.progress-fill');
-        fills.forEach(fill => {
-            fill.style.width = fill.getAttribute('data-percent');
-        });
-    }
-</script>
 
 </body>
 </html>
