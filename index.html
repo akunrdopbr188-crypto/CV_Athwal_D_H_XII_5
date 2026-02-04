@@ -102,6 +102,32 @@
       to { width: var(--level); }
     }
 
+        .accordion-title {
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+    }
+    .accordion-title::after {
+      content: '▼';
+      position: absolute;
+      right: 0;
+      font-size: 14px;
+      transition: transform 0.3s ease;
+    }
+    .accordion.active .accordion-title::after {
+      transform: rotate(180deg);
+    }
+    .accordion-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.5s ease, opacity 0.4s ease;
+      opacity: 0;
+    }
+    .accordion.active .accordion-content {
+      max-height: 300px;
+      opacity: 1;
+    }
+
     footer {
       text-align: center;
       padding: 15px;
@@ -114,7 +140,7 @@
   <div class="container">
     <header>
       <!-- Ganti src dengan foto Anda -->
-      <img src="foto-athwal.jpg" alt="Foto Athwal Dayfi Hikari" />
+      <img src="p.jpg" alt="Foto Athwal Dayfi Hikari" />
       <div>
         <h1>Athwal Dayfi Hikari</h1>
         <p>Pelajar | Lahir 2007</p>
@@ -122,9 +148,11 @@
       </div>
     </header>
 
-    <section>
-      <h2>Tentang Diri</h2>
-      <p>Saya adalah seorang pelajar yang memiliki minat untuk belajar hal baru, bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.</p>
+    <section class="accordion">
+      <h2 class="accordion-title">Tentang Diri (Klik)</h2>
+      <div class="accordion-content">
+        <p>Saya adalah seorang pelajar yang memiliki minat untuk belajar hal baru, bertanggung jawab, dan mampu bekerja secara mandiri maupun dalam tim.</p>
+      </div>
     </section>
 
     <section>
@@ -136,13 +164,15 @@
       </ul>
     </section>
 
-    <section>
-      <h2>Pendidikan</h2>
-      <ul>
-        <li>SDN Karang Setra Ciluncat – Lulus 2020</li>
-        <li>SMPN 1 Cangkuang – Lulus 2023</li>
-        <li>SMA KP Baleendah – Lulus 2026</li>
-      </ul>
+    <section class="accordion">
+      <h2 class="accordion-title">Pendidikan (Klik)</h2>
+      <div class="accordion-content">
+        <ul>
+          <li>SDN Karang Setra Ciluncat – Lulus 2020</li>
+          <li>SMPN 1 Cangkuang – Lulus 2023</li>
+          <li>SMA KP Baleendah – Lulus 2026</li>
+        </ul>
+      </div>
     </section>
 
     <section>
@@ -249,6 +279,14 @@
 
     const languageSection = document.querySelector('.language');
     observer.observe(languageSection);
+  </script>
+  <script>
+    /* Accordion Klik */
+    document.querySelectorAll('.accordion-title').forEach(title => {
+      title.addEventListener('click', () => {
+        title.parentElement.classList.toggle('active');
+      });
+    });
   </script>
 </body>
 </html>
